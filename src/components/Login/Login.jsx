@@ -55,6 +55,14 @@ const Login = () => {
         if (!email) {
             alert('Please provide your email address to reset password')
         }
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                alert('please check your email')
+            })
+            .catch(error => {
+                console.log(error);
+                setError(error.message)
+            })
     }
 
     return (
